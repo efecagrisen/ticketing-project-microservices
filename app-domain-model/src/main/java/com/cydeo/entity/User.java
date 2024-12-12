@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.Where;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import com.cydeo.enums.Gender;
 
 @NoArgsConstructor
