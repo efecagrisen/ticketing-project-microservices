@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration>
-    <property name="DEV_HOME" value="workspace/user-service/logs"/>
-    <property name="APP_NAME" value="user-service"/>
+    <property name="DEV_HOME" value="/workspace/project-service/logs"/>
+    <property name="APP_NAME" value="project-service"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -38,8 +38,6 @@
 
     </appender>
 
-
-<!--    log levels     trace>debug>info>warn>error    -->
     <logger name="com.cydeo" level="info" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
@@ -49,5 +47,4 @@
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
     </root>
-
 </configuration>

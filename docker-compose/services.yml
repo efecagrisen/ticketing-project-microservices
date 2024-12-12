@@ -22,6 +22,8 @@ services:
       retries: 5
   userservice:
     image: ${GROUP_ID}/user-service:${SERVICE_VERSION:-latest}
+    volumes:
+      - ./logs/user-service:/workspace/user-service/logs
     environment:
       - "PROFILE=dev"
       - "JAVA_OPTS:-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
@@ -34,6 +36,8 @@ services:
       - backend
   projectservice:
     image: ${GROUP_ID}/project-service:${SERVICE_VERSION:-latest}
+    volumes:
+      - ./logs/project-service:/workspace/project-service/logs
     environment:
       - "PROFILE=dev"
       - "JAVA_OPTS:-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
@@ -46,6 +50,8 @@ services:
       - backend
   taskservice:
     image: ${GROUP_ID}/task-service:${SERVICE_VERSION:-latest}
+    volumes:
+      - ./logs/task-service:/workspace/task-service/logs
     environment:
       - "PROFILE=dev"
       - "JAVA_OPTS:-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"

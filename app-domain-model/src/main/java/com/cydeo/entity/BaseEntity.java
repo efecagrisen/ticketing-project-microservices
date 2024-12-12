@@ -1,7 +1,7 @@
 package com.cydeo.entity;
 
 import lombok.*;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -15,15 +15,18 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true,updatable = false)
-    public LocalDateTime insertDateTime;
-    @Column(nullable = true,updatable = false)
-    public Long insertUserId;
-    @Column(nullable = true)
-    public LocalDateTime lastUpdateDateTime;
-    @Column(nullable = true)
-    public Long lastUpdateUserId;
+    @Column(name = "insert_date_time", nullable = true, updatable = false)
+    private LocalDateTime insertDateTime;
 
-    private Boolean isDeleted=false;
+    @Column(name = "insert_user_id", nullable = true, updatable = false)
+    private Long insertUserId;
 
+    @Column(name = "last_update_date_time", nullable = true)
+    private LocalDateTime lastUpdateDateTime;
+
+    @Column(name = "last_update_user_id", nullable = true, columnDefinition = "bigint")
+    private Long lastUpdateUserId;
+
+    @Column(name = "is_deleted", columnDefinition = "boolean default false")
+    private Boolean isDeleted = false;
 }
