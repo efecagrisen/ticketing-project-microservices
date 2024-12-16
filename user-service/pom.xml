@@ -89,10 +89,22 @@
                 <configuration>
                     <image>
                         <name>${project.groupId}/user-service:${project.version}</name>
+                        <builder>paketobuildpacks/builder:base</builder>
+                        <env>
+                            <BP_JVM_VERSION>17</BP_JVM_VERSION>
+                            <BP_JVM_TYPE>JRE</BP_JVM_TYPE>
+                        </env>
                     </image>
                 </configuration>
                 <executions>
                     <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>build-image</id>
                         <phase>install</phase>
                         <goals>
                             <goal>build-image</goal>
