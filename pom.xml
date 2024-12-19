@@ -35,6 +35,7 @@
         <spring-cloud.version>2022.0.4</spring-cloud.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <flyway.version>9.22.3</flyway.version>
+        <resilience4j.version>3.0.3</resilience4j.version>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +62,11 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>4.1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+                <version>${resilience4j.version}</version>
             </dependency>
             <!-- Internal Dependencies -->
             <dependency>
@@ -103,6 +109,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
 
