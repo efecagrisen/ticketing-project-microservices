@@ -1,0 +1,31 @@
+#spring:
+#  application:
+#    name: config-server
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/config
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${GIT_REPO_URI:https://github.com/efecagrisen/ticketing-project-microservices-config}
+          default-label: main
+          username: ${GIT_USERNAME:efecagrisen}
+          password: ${GIT_PASSWORD}
+      fail-fast: true
+
+encrypt:
+  key: ${ENCRYPT_KEY:cydeo}
+
+server:
+  port: 8888
